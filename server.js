@@ -13,7 +13,8 @@ require("dotenv").config({
 const app = express();
 var corsOptions = { origin: "http://localhost:4200" };
 
-app.use(express.static('dist'));
+app.use(express.static(__dirname + '/dist/libreria'));
+app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
 app.use(cors(corsOptions));
 
