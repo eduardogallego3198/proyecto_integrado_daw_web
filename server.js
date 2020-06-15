@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 const path = require('path')
 const Cliente = require('./app/models/cliente.model');
 const Encargado = require('./app/models/encargado.model');
+const http = require('http');
+const socketio = require('socket.io')
+
+const server = http.createServer(app);
+const io = socketio.listen(server);
 
 require("dotenv").config({
     path: path.join(__dirname, "../.env")
@@ -14,7 +19,6 @@ const app = express();
 var corsOptions = { origin: "http://localhost:4200" };
 
 app.use(express.static(__dirname + '/dist/libreria'));
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
 app.use(cors(corsOptions));
 
