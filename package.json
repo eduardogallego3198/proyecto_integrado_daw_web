@@ -4,7 +4,7 @@
   "description": "Servidor librería",
   "main": "server.js",
   "scripts": {
-    "start": "node server.jshero",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
