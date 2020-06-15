@@ -5,11 +5,12 @@ const jwt = require('jsonwebtoken');
 const path = require('path')
 const Cliente = require('./app/models/cliente.model');
 const Encargado = require('./app/models/encargado.model');
-const http = require('http');
-const socketio = require('socket.io')
+const ghpages = require('gh-pages');
 
-const server = http.createServer(app);
-const io = socketio.listen(server);
+ghpages.publish('dist', {
+    branch: 'master',
+    repo: 'https://github.com/eduardogallego3198/proyecto_integrado_daw_web'
+  }, function(err) {});
 
 require("dotenv").config({
     path: path.join(__dirname, "../.env")
